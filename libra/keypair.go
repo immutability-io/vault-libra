@@ -21,10 +21,10 @@ import (
 	"io"
 	"strings"
 
-	"github.com/ebfe/keccak"
 	"github.com/keybase/go-crypto/ed25519"
 	"github.com/sethvargo/go-diceware/diceware"
 	"golang.org/x/crypto/hkdf"
+	"golang.org/x/crypto/sha3"
 )
 
 const (
@@ -45,7 +45,7 @@ var (
 // HKDFReader returns the Reader, from which keys can be read, using the given hash,
 // secret, salt and context info. Salt and info can be nil.
 func HKDFReader(seed []byte, salt string) (io.Reader, error) {
-	hash := keccak.NewSHA3256
+	hash := sha3.New256
 
 	if _, err := rand.Read([]byte(salt)); err != nil {
 		return nil, err
@@ -114,10 +114,8 @@ func (pair *kp) Address() (string, error) {
 	if err != nil {
 		return "", err
 	}
-	hash := keccak.NewSHA3256()
-	hash.Write([]byte(pk))
-	addressRaw := hash.Sum(nil)
-	address, err := Encode(addressRaw)
+	digest := sha3.Sum256([]byte(pk))
+	address, err := Encode(digest[:])
 	if err != nil {
 		return "", err
 	}
