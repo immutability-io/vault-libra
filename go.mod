@@ -4,6 +4,7 @@ go 1.12
 
 require (
 	github.com/ebfe/keccak v0.0.0-20150115210727-5cc570678d1b
+	github.com/golang/protobuf v1.3.1
 	github.com/hashicorp/errwrap v1.0.0
 	github.com/hashicorp/vault/api v1.0.2
 	github.com/hashicorp/vault/sdk v0.1.11

@@ -4,6 +4,8 @@
 // A Debugging interface to be used to query debug information from a Node
 syntax = "proto3";
 
+option go_package = "github.com/immutability-io/vault-libra/libra/grpc";
+
 package debug;
 
 message GetNodeDetailsRequest {}

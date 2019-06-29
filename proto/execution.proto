@@ -3,9 +3,11 @@
 
 syntax = "proto3";
 
+option go_package = "github.com/immutability-io/vault-libra/libra/grpc";
+
 package execution;
 
-// import "get_with_proof.proto";
+
 import "ledger_info.proto";
 import "transaction.proto";
 import "validator_set.proto";

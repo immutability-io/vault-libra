@@ -3,10 +3,12 @@
 
 syntax = "proto3";
 
+option go_package = "github.com/immutability-io/vault-libra/libra/grpc";
+
 package mempool;
 
 import "transaction.proto";
-import "shared/mempool_status.proto";
+import "mempool_status.proto";
 
 // -----------------------------------------------------------------------------
 // ---------------- Mempool Service Definition

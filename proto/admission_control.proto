@@ -3,10 +3,12 @@
 
 syntax = "proto3";
 
+option go_package = "github.com/immutability-io/vault-libra/libra/grpc";
+
 package admission_control;
 
 import "get_with_proof.proto";
-import "shared/mempool_status.proto";
+import "mempool_status.proto";
 import "transaction.proto";
 import "vm_errors.proto";
 

@@ -3,6 +3,8 @@
 
 syntax = "proto3";
 
+option go_package = "github.com/immutability-io/vault-libra/libra/grpc";
+
 package types;
 
 message AccessPath {
